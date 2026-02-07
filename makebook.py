@@ -98,10 +98,11 @@ if args.join:
     for i in range(0, len(reader.pages), 2):
         new_page = PageObject.create_blank_page(width=new_width, height=height)
         new_page.merge_page(reader.pages[i])
-        new_page.merge_transformed_page(
-            reader.pages[i+1],
-            Transformation().translate(tx=width, ty=0)
-        )
+        if i+1 < len(reader.pages):
+            new_page.merge_transformed_page(
+                reader.pages[i+1],
+                Transformation().translate(tx=width, ty=0)
+            )
 
         writer.add_page(new_page)
 
