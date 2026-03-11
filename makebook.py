@@ -32,7 +32,7 @@ shutil.copy(path, TEMP_PATH)
 if section_size > 0:
     reader = PdfReader(TEMP_PATH)
 
-    start_padding = 2
+    #start_padding = 2
 
     num_pages = len(reader.pages) + start_padding
     num_sections = math.ceil(num_pages / (section_size*4))
